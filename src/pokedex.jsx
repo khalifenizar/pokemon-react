@@ -18,16 +18,25 @@ class Pokedex extends React.Component {
         this.props.onSelectPokemon(name);
     }
 
+    idForPokemon(pkmn) {
+        var chunks = pkmn.resource_uri.split('/')
+        return Number(chunks[3])
+    }
+
     renderPokedex(list) {
-        return list.map((pkmn) => {
-            return (
-                <li>
-                    <a data-name={pkmn.name} href="#" onClick={this.clickOnPokemon.bind(this)}>
-                        {pkmn.name}
-                    </a>
-                </li>
-            );
-        });
+        return list
+            .sort((a, b) => {
+                return this.idForPokemon(a) - this.idForPokemon(b)
+            })
+            .map((pkmn) => {
+                return (
+                    <li>
+                        <a data-name={pkmn.name} href="#" onClick={this.clickOnPokemon.bind(this)}>
+                            {pkmn.name}
+                        </a>
+                    </li>
+                );
+            });
     }
 
     render() {
