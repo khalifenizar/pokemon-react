@@ -42,9 +42,9 @@ class Pokedex extends React.Component {
     render() {
         return (
             <div className="pokedex-container">
-                <ul className="pokedex-list">
+                <ol className="pokedex-list">
                     {this.renderPokedex(this.props.list)}
-                </ul>
+                </ol>
             </div>
         );
     }
