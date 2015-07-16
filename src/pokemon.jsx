@@ -11,18 +11,17 @@ class Pokemon extends React.Component {
     }
 
     componentDidMount() {
-        $.ajax({
-            url: 'http://pokeapi.co/' + this.props.uri,
-            success: (pokemon) => {
-                this.setState(pokemon)
-            }
-        })
+        this.loadPokemonDetails(this.props.uri)
     }
+
 
     render() {
         return (
             <div className="pokemon">
                 <h2>{this.state.name}</h2>
+
+                {this.pokemonImage()}
+
                 <dl>
                     <dt>Height</dt>
                     <dd>{this.state.height}</dd>
@@ -33,5 +32,31 @@ class Pokemon extends React.Component {
         );
     }
 
+    loadPokemonDetails(uri) {
+        $.ajax({
+            url: 'http://pokeapi.co/' + uri,
+            success: (pokemon) => {
+                this.setState(pokemon)
+                this.loadSprite(pokemon.sprites[0].resource_uri)
+            }
+        })
+    }
+
+    loadSprite(uri) {
+        $.ajax({
+            url: 'http://pokeapi.co' + uri,
+            success: (sprite) => {
+                this.setState({
+                    image: 'http://pokeapi.co' + sprite.image
+                })
+            }
+        })
+    }
+
+    pokemonImage() {
+        if (this.state.image) {
+            return <img src={this.state.image} />
+        }
+    }
 }
 module.exports = Pokemon;
