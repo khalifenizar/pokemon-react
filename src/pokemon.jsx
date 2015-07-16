@@ -32,6 +32,12 @@ class Pokemon extends React.Component {
         );
     }
 
+    pokemonImage() {
+        if (this.state.image) {
+            return <img src={this.state.image} />
+        }
+    }
+
     loadPokemonDetails(uri) {
         $.ajax({
             url: 'http://pokeapi.co/' + uri,
@@ -51,12 +57,6 @@ class Pokemon extends React.Component {
                 })
             }
         })
-    }
-
-    pokemonImage() {
-        if (this.state.image) {
-            return <img src={this.state.image} />
-        }
     }
 }
 module.exports = Pokemon;

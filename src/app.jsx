@@ -28,13 +28,15 @@ class App extends React.Component {
     }
 
     onSelectPokemon(uri) {
-        this.state.selectedUri = uri;
-        this.setState(this.state);
+        this.setState({
+            selectedUri: uri
+        });
     }
 
     onShowPokedex() {
-        this.state.selectedUri = null;
-        this.setState(this.state);
+        this.setState({
+            selectedUri: null
+        });
     }
 
     render() {
