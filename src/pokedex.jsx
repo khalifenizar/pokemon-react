@@ -4,16 +4,30 @@
 
 class Pokedex extends React.Component {
 
+    // static propTypes = {
+    //     onSelectPokemon: React.PropTypes.func.isRequired,
+    //     list: React.PropTypes.array.isRequired
+    // }
+
     constructor() {
         super();
     }
 
+    clickOnPokemon(event) {
+        var name = event.target.getAttribute('data-name');
+        this.props.onSelectPokemon(name);
+    }
+
     renderPokedex(list) {
-        return list.map(function(name) {
+        return list.map((name) => {
             return (
-                <li>{name}</li>
+                <li>
+                    <a data-name={name} href="#" onClick={this.clickOnPokemon.bind(this)}>
+                        {name}
+                    </a>
+                </li>
             );
-        })
+        });
     }
 
     render() {
