@@ -12,7 +12,7 @@ This won't work with the `file` protocol on your browser.
 ```bash
 npm install browserify --global
 npm install
-browserify js/main.jsx -t babelify --outfile build/bundle.js
+browserify src/main.jsx -t babelify --outfile build/bundle.js
 ```
 ## React
 
