@@ -1,0 +1,30 @@
+{
+  "name": "pokemon-react",
+  "version": "1.0.0",
+  "description": "Pokemon React =============",
+  "main": "index.js",
+  "dependencies": {
+    "babelify": "^6.1.3"
+  },
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
+  },
+  "devDependencies": {
+    "babelify": "^6.1.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/khalifenizar/pokemon-react.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/khalifenizar/pokemon-react/issues"
+  },
+  "homepage": "https://github.com/khalifenizar/pokemon-react"
+}
