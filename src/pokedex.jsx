@@ -19,11 +19,11 @@ class Pokedex extends React.Component {
     }
 
     renderPokedex(list) {
-        return list.map((name) => {
+        return list.map((pkmn) => {
             return (
                 <li>
-                    <a data-name={name} href="#" onClick={this.clickOnPokemon.bind(this)}>
-                        {name}
+                    <a data-name={pkmn.name} href="#" onClick={this.clickOnPokemon.bind(this)}>
+                        {pkmn.name}
                     </a>
                 </li>
             );

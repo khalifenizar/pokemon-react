@@ -9,12 +9,22 @@ class App extends React.Component {
 
     constructor() {
         super();
-        this.list = [
-            "pikachu", "rattata", "meowth"
-        ];
+
         this.state = {
-            selectedName: null
+            selectedName: null,
+            list: []
         };
+    }
+
+    componentDidMount () {
+        $.ajax({
+            url: 'http://pokeapi.co/api/v1/pokedex/1/',
+            success: (response) => {
+                this.setState({
+                    list: response.pokemon
+                })
+            }
+        })
     }
 
     onSelectPokemon(name) {
@@ -41,7 +51,7 @@ class App extends React.Component {
         return (
             <div class="pokemon">
                 <h1>Pokedex</h1>
-                <Pokedex list={this.list}
+                <Pokedex list={this.state.list}
                          onSelectPokemon={this.onSelectPokemon.bind(this)}/>
             </div>
         );
