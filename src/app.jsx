@@ -40,7 +40,7 @@ class App extends React.Component {
     render() {
         if (this.state.selectedName) {
             return (
-                <div class="pokemon">
+                <div className="app">
                     <h1>Pokemon</h1>
                     <Pokemon name={this.state.selectedName} />
                     <a href="#" onClick={this.onShowPokedex.bind(this)}>show pokedex</a>
@@ -49,7 +49,7 @@ class App extends React.Component {
         }
 
         return (
-            <div class="pokemon">
+            <div className="app">
                 <h1>Pokedex</h1>
                 <Pokedex list={this.state.list}
                          onSelectPokemon={this.onSelectPokemon.bind(this)}/>
