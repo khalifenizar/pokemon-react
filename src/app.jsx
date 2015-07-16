@@ -11,7 +11,7 @@ class App extends React.Component {
         super();
 
         this.state = {
-            selectedName: null,
+            selectedUri: null,
             list: []
         };
     }
@@ -27,22 +27,22 @@ class App extends React.Component {
         })
     }
 
-    onSelectPokemon(name) {
-        this.state.selectedName = name;
+    onSelectPokemon(uri) {
+        this.state.selectedUri = uri;
         this.setState(this.state);
     }
 
     onShowPokedex() {
-        this.state.selectedName = null;
+        this.state.selectedUri = null;
         this.setState(this.state);
     }
 
     render() {
-        if (this.state.selectedName) {
+        if (this.state.selectedUri) {
             return (
                 <div className="app">
                     <h1>Pokemon</h1>
-                    <Pokemon name={this.state.selectedName} />
+                    <Pokemon uri={this.state.selectedUri} />
                     <a href="#" onClick={this.onShowPokedex.bind(this)}>show pokedex</a>
                 </div>
             );

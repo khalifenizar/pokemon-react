@@ -14,8 +14,10 @@ class Pokedex extends React.Component {
     }
 
     clickOnPokemon(event) {
-        var name = event.target.getAttribute('data-name');
-        this.props.onSelectPokemon(name);
+        event.preventDefault()
+
+        var uri = event.target.getAttribute('data-uri')
+        this.props.onSelectPokemon(uri);
     }
 
     idForPokemon(pkmn) {
@@ -31,7 +33,7 @@ class Pokedex extends React.Component {
             .map((pkmn) => {
                 return (
                     <li>
-                        <a data-name={pkmn.name} href="#" onClick={this.clickOnPokemon.bind(this)}>
+                        <a data-uri={pkmn.resource_uri} href="#" onClick={this.clickOnPokemon.bind(this)}>
                             {pkmn.name}
                         </a>
                     </li>
